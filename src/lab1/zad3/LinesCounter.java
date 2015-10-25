@@ -1,11 +1,14 @@
 package lab1.zad3;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-24.
+ *
  */
 public class LinesCounter {
-    boolean allowEmptyLines, allowBrackets;
-    int count = 0;
+    private boolean allowEmptyLines;
+    private boolean allowBrackets;
+    private int count = 0;
 
     public void checkIfCounts(LineChecker checker) {
         if (!checker.isEmpty || allowEmptyLines) {

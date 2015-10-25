@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-19.
+ *
  */
+
 public class NumbersReader {
-    private List<Number> tab = new ArrayList<>();
+    private final List<Number> tab = new ArrayList<>();
 
     public void splitTab(String str) {
         String[] tempTab = str.split(",");

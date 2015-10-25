@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-20.
+ *
  */
 public class Number {
     private double value;
@@ -14,7 +16,7 @@ public class Number {
         setValue(num);
     }
 
-    List<Integer> getSplitedNumbers() {
+    private List<Integer> shredNumbers() {
         List<Integer> tempList = new ArrayList<>();
         Double temp = getValue();
         int num;
@@ -35,8 +37,8 @@ public class Number {
         return tempList;
     }
 
-    List<Integer> sortNumbers() {
-        List<Integer> list = getSplitedNumbers();
+    private List<Integer> sortNumbers() {
+        List<Integer> list = shredNumbers();
         Collections.sort(list);
         Collections.reverse(list);
         return list;
@@ -71,7 +73,7 @@ public class Number {
         return value;
     }
 
-    public void setValue(double value) {
+    private void setValue(double value) {
         this.value = value;
     }
 }

@@ -1,7 +1,9 @@
 package lab1.zad3;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-21.
+ *
  */
 public class LineChecker {
 
@@ -26,17 +28,11 @@ public class LineChecker {
     }
 
     private void checkIfBrackets(String line) {
-        if ((!line.contains("{")) || ((line.split("\\{").length > 0))) {
-            hasOnlyBrackets = !((!line.contains("}")) || ((line.split("\\}").length > 0)));
-        } else {
-            hasOnlyBrackets = true;
-        }
+        hasOnlyBrackets = !((!line.contains("{")) || ((line.split("\\{").length > 0))) || !((!line.contains("}")) || ((line.split("\\}").length > 0)));
     }
 
-    public void checkIfComment(String line) {
-        if ((!line.contains("//")) || (line.split("//").length > 0 && line.split("//")[0].length() != 0)) {
-            isComment = !((!line.contains("/*")) || (line.split("/\\*").length > 0 && line.split("/\\*")[0].length() != 0));
-        } else isComment = true;
+    private void checkIfComment(String line) {
+        isComment = !((!line.contains("//")) || (line.split("//").length > 0 && line.split("//")[0].length() != 0)) || !((!line.contains("/*")) || (line.split("/\\*").length > 0 && line.split("/\\*")[0].length() != 0));
         if (line.contains("/*")) {
             startsComment = true;
         }

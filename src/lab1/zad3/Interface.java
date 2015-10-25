@@ -3,21 +3,16 @@ package lab1.zad3;
 import java.io.*;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-21.
+ *
  */
 public class Interface {
-    boolean allowEmptyLines, allowBrackets;
-    String filename;
-
-    Interface(boolean lines, boolean breckets, String filename,LinesCounter counter) {
-        counter.setAllowEmptyLines(lines);
-        counter.setAllowBrackets(breckets);
-        this.filename=filename;
-    }
+    final String filename;
 
     Interface(LinesCounter counter) {
-        counter.setAllowEmptyLines(askYesNo("Czy chcesz by zliczac puste linie"));
-        counter.setAllowBrackets(askYesNo("Czy chcesz by zliczac linie z klamrami"));
+        counter.setAllowEmptyLines(askYesNo("Do you want to count empty lines?"));
+        counter.setAllowBrackets(askYesNo("Do you want to count lines with only Brackets"));
         filename = askForFile();
     }
 
@@ -25,17 +20,17 @@ public class Interface {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String filename;
         do try {
-            System.out.println("Podaj nazwe pliku");
+            System.out.println("Enter filename");
             filename = br.readLine();
             if (!filename.isEmpty()) {
                 File f = new File(filename);
                 if (f.exists()) {
                     return filename;
                 } else
-                    System.out.println("Plik nie istnieje");
+                    System.out.println("File doesn't exist");
             }
         } catch (IOException e) {
-            System.out.println("Plik nie istnieje");
+            System.out.println("File doesn't exist");
         } while (true);
     }
 
@@ -43,17 +38,17 @@ public class Interface {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String character;
         do try {
-            System.out.println(str + " [T/N]");
+            System.out.println(str + " [Y/N]");
             character = br.readLine();
             if (!character.isEmpty()) {
                 character = character.substring(0, 1);
-                if (character.equalsIgnoreCase("t")) return true;
+                if (character.equalsIgnoreCase("y")) return true;
                 if (character.equalsIgnoreCase("n")) return false;
             }
         } catch (IOException e) {
             character = "";
         }
-        while (!character.equalsIgnoreCase("t") && !character.equalsIgnoreCase("n"));
+        while (!character.equalsIgnoreCase("y") && !character.equalsIgnoreCase("n"));
         return false;
     }
 }

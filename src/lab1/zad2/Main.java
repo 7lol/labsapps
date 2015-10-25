@@ -1,7 +1,9 @@
 package lab1.zad2;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-10-19.
+ *
  */
 public class Main {
 
