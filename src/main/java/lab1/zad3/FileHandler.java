@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class FileHandler {
 
-    public List<String> readLines(String filename) {
+    public static List<String> readLines(String filename) {
         List<String> linesList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
