@@ -3,8 +3,8 @@ package lab3.zad13.test;
 import lab3.zad13.Pesel;
 import org.junit.Test;
 
-import java.util.Random;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Created by 7_lol_000 on 2015-11-19.
