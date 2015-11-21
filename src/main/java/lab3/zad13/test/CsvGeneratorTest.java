@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.io.IOException;
 
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,8 @@ import java.util.List;
  */
 public class CsvGeneratorTest {
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         List<String> file = new ArrayList<>();
         file.add("melanameslist=MAN-NAMES.txt");
         file.add("femalenameslist=WOMAN-NAMES.txt");
@@ -41,10 +42,10 @@ public class CsvGeneratorTest {
 
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         File file = new File("temp.conf");
-        file.delete();
+        file.deleteOnExit();
     }
 
     @Test
