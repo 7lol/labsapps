@@ -10,4 +10,7 @@ public class GeneratorKeysTable {
     public static final String SURNAMES_LIST = "surnameslist";
     public static final String CITES_LIST = "citieslist";
     public static final String OUTPUT= "outputfile";
+    public static final String DUPES= "dupesper100";
+    public static final String FAILS= "failedper100";
+    public static final String COUNT= "count";
 }

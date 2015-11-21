@@ -1,7 +1,9 @@
 package lab3.zad13;
 
+import lab1.zad1.ConfigService;
 import lab1.zad3.FileHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +12,59 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        List<String> manNames =FileHandler.readLines("MAN-NAMES.txt");
-        List<String> womanNames = FileHandler.readLines("WOMAN-NAMES.txt");
-        List<String> surnames = FileHandler.readLines("SURNAMES.txt");
-        List<List<String>> countries = new ArrayList<>();
-        countries.add(FileHandler.readLines("CITIES_USA.txt"));
-        countries.add(FileHandler.readLines("CITIES_POLAND.txt"));
-        List<CsvData> lista=new ArrayList<>();
-        lista.add(new CsvData(manNames,womanNames,surnames,countries));
-        System.out.println(lista.get(0).getData());
+        if (args.length > 0) {
+            switch (args[0].toUpperCase()) {
+                case "G": {
+                    try {
+                        generate();
+                    } catch (BadValueInConfigFile badValueInConfigFile) {
+                        System.out.println("Wrong value in config file");
+                    }
+                }
+                break;
+                default: {
+                    proceed();
+                }
+            }
+        } else proceed();
+    }
 
+    private static void generate() throws BadValueInConfigFile {
+        CsvGenerator generator = new CsvGenerator();
+        generator.run();
+    }
+
+    private static void proceed() {
+        proceed(KeysTable.PROPERTIES_FILE);
+    }
+
+    private static void proceed(String configName) {
+        CsvDataSet data = new CsvDataSet();
+        ConfigService config = new ConfigService(configName);
+        List<String> list = FileHandler.readLines(config.getProperty(KeysTable.INPUT));
+        List<CsvData> fails = new ArrayList<>();
+        List<String> temp = new ArrayList<>();
+        list.remove(0);
+        list.stream().forEach(obj -> {
+            if (!data.add(new CsvData(obj))) fails.add(new CsvData(obj));
+        });
+        temp.add(CsvData.getHeader());
+        for (CsvData row : fails) {
+            temp.add(row.getData());
+        }
+        try {
+            FileHandler.writeLines(config.getProperty(KeysTable.ERRORS) + ".csv", temp);
+        } catch (IOException e) {
+            System.out.println("Failed to save file " + (config.getProperty(KeysTable.ERRORS)) + ".csv");
+        }
+        int i = 0;
+        for (List<String> file : data.getSplitedCsv(Integer.parseInt(config.getProperty(KeysTable.ROWS)))) {
+            try {
+                FileHandler.writeLines((config.getProperty(KeysTable.OUTPUT) + "_" + i + ".csv"), file);
+            } catch (IOException e) {
+                System.out.println("Failed to save file " + (config.getProperty(KeysTable.OUTPUT) + "_" + i + ".csv"));
+            }
+            i++;
+        }
     }
 }

@@ -1,8 +1,6 @@
 package lab1.zad3;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +23,16 @@ public class FileHandler {
             e.printStackTrace();
         }
         return linesList;
+    }
+    public static void writeLines(String filename,List<String> list) throws IOException {
+    BufferedWriter writer = null;
+        writer = new BufferedWriter( new FileWriter(filename));
+        final BufferedWriter finalWriter = writer;
+        for (String line: list
+             ) {
+            finalWriter.write(line + "\n");
+        }
+        if ( writer != null) writer.close( );
     }
 }
 
