@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * Created by 7_lol_000 on 2015-10-21.
- *
  */
 public class FileHandler {
 
@@ -24,15 +22,14 @@ public class FileHandler {
         }
         return linesList;
     }
-    public static void writeLines(String filename,List<String> list) throws IOException {
-    BufferedWriter writer = null;
-        writer = new BufferedWriter( new FileWriter(filename));
-        final BufferedWriter finalWriter = writer;
-        for (String line: list
-             ) {
-            finalWriter.write(line + "\n");
+
+    public static void writeLines(String filename, List<String> list) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        for (String line : list
+                ) {
+            writer.write(line + "\n");
         }
-        if ( writer != null) writer.close( );
+        writer.close();
     }
 }
 
