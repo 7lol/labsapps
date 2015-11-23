@@ -1,7 +1,9 @@
 package lab3.zad13;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-20.
+ *
  */
 public class GeneratorKeysTable {
     public static final String PROPERTIES_FILE = "generator.conf";

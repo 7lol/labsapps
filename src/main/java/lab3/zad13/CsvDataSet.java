@@ -5,19 +5,15 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-21.
+ *
  */
 public class CsvDataSet {
     HashSet<CsvData> dataSet = new HashSet<>();
 
     public boolean add(CsvData data) {
-        if (data.isValid()) {
-            if (dataSet.add(data)) {
-                return true;
-            } else
-                return false;
-        } else
-            return false;
+        return data.isValid() && dataSet.add(data);
     }
 
     public List<List<String>> getSplitedCsv(int number) {

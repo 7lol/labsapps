@@ -3,7 +3,6 @@ package lab3.zad13;
 import lab1.zad1.ConfigService;
 import lab1.zad3.FileHandler;
 
-import javax.management.BadAttributeValueExpException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,7 +10,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-20.
+ *
  */
 public class CsvGenerator {
     int duplicateCount, failsCount, count;
@@ -44,7 +45,6 @@ public class CsvGenerator {
     public void run() {
         generateWithFailsAndDupes();
         saveToFile();
-        //clearList();
     }
 
     private void generateWithFailsAndDupes() {
@@ -76,8 +76,8 @@ public class CsvGenerator {
             } while (rand == Integer.parseInt(temp2[9]));
             temp2[9] = rand.toString();
             StringBuilder temp3 = new StringBuilder();
-            for (int i = 0; i < temp2.length; i++) {
-                temp3.append(temp2[i]);
+            for (String aTemp2 : temp2) {
+                temp3.append(aTemp2);
             }
             set(x, new CsvData(temp3.toString()));
         });
@@ -95,10 +95,6 @@ public class CsvGenerator {
 
     public List<CsvData> getList() {
         return list;
-    }
-
-    public void clearList() {
-        list.clear();
     }
 
     public void saveToFile() {

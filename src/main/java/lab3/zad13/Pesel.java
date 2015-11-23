@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.Random;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-19.
+ *
  */
 public class Pesel {
     String number;
@@ -17,7 +19,7 @@ public class Pesel {
         generate(male);
     }
 
-    public String get(){
+    public String get() {
         return number;
     }
 
@@ -43,29 +45,29 @@ public class Pesel {
     public boolean validate(boolean male) {
         String str[] = number.split("");
         if (number.length() == 11) {
-            if (getLast() == Integer.parseInt(str[str.length - 1]))
-            {
+            if (getLast() == Integer.parseInt(str[str.length - 1])) {
                 if (male && Integer.parseInt(str[str.length - 2]) % 2 > 0) return true;
                 if (!male && Integer.parseInt(str[str.length - 2]) % 2 <= 0) return true;
             }
         }
         return false;
     }
-    public boolean isMale(){
+
+    public boolean isMale() {
         String str[] = number.split("");
         return ((Integer.parseInt(str[str.length - 2]) % 2) > 0);
     }
 
-    public boolean isFemale(){
+    public boolean isFemale() {
         String str[] = number.split("");
         return ((Integer.parseInt(str[str.length - 2]) % 2) <= 0);
     }
 
     private int getLast() {
         String str[] = number.split("");
-        Integer numb = (Integer.parseInt(str[0]) + 3 * Integer.parseInt(str[1]) + 7 * Integer.parseInt(str[2]) + 9 * Integer.parseInt(str[3]) + 1 * Integer.parseInt(str[4]) + 3 * Integer.parseInt(str[5]) + 7 * Integer.parseInt(str[6]) + 9 * Integer.parseInt(str[7]) + 1 * Integer.parseInt(str[8]) + 3 * Integer.parseInt(str[9]));
+        Integer numb = (Integer.parseInt(str[0]) + 3 * Integer.parseInt(str[1]) + 7 * Integer.parseInt(str[2]) + 9 * Integer.parseInt(str[3]) + Integer.parseInt(str[4]) + 3 * Integer.parseInt(str[5]) + 7 * Integer.parseInt(str[6]) + 9 * Integer.parseInt(str[7]) + Integer.parseInt(str[8]) + 3 * Integer.parseInt(str[9]));
         String str2[] = numb.toString().split("");
-        if(Integer.parseInt(str2[str2.length - 1])==0) return 0;
+        if (Integer.parseInt(str2[str2.length - 1]) == 0) return 0;
         return (10 - Integer.parseInt(str2[str2.length - 1]));
     }
 }

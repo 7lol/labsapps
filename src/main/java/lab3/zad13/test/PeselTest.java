@@ -6,7 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-19.
+ *
  */
 public class PeselTest {
 
@@ -15,7 +17,6 @@ public class PeselTest {
         Pesel womanPsl = new Pesel("88121202329");
         Pesel manPsl = new Pesel("88121202435");
         assertFalse(!womanPsl.validate(false) || !manPsl.validate(true) || !womanPsl.isFemale() || !manPsl.isMale());
-        ;
     }
 
     @Test

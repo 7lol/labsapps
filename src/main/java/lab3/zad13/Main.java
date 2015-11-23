@@ -6,9 +6,12 @@ import lab1.zad3.FileHandler;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-19.
+ *
  */
 public class Main {
     public static void main(String[] args) {
@@ -49,9 +52,7 @@ public class Main {
             if (!data.add(new CsvData(obj))) fails.add(new CsvData(obj));
         });
         temp.add(CsvData.getHeader());
-        for (CsvData row : fails) {
-            temp.add(row.getData());
-        }
+        temp.addAll(fails.stream().map(CsvData::getData).collect(Collectors.toList()));
         try {
             FileHandler.writeLines(config.getProperty(KeysTable.ERRORS) + ".csv", temp);
         } catch (IOException e) {

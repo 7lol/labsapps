@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
+ *
  * Created by 7_lol_000 on 2015-11-19.
+ *
  */
 public class CsvData {
     Pesel peselnumber;
@@ -14,17 +16,11 @@ public class CsvData {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
         CsvData csvData = (CsvData) o;
-
-        if (male != csvData.male) return false;
-        if (!peselnumber.equals(csvData.peselnumber)) return false;
-        if (!name.equals(csvData.name)) return false;
-        if (!surname.equals(csvData.surname)) return false;
-        if (!city.equals(csvData.city)) return false;
-        return country.equals(csvData.country);
-
+        return !(o == null || getClass() != o.getClass()) && male == csvData.male &&
+                peselnumber.equals(csvData.peselnumber) && name.equals(csvData.name) &&
+                surname.equals(csvData.surname) && city.equals(csvData.city) &&
+                country.equals(csvData.country);
     }
 
     @Override
@@ -47,13 +43,13 @@ public class CsvData {
         switch (generator.nextInt(2)) {
             case 0: {
                 male = false;
-                peselnumber = new Pesel(male);
+                peselnumber = new Pesel(false);
                 name = womanNames.get(generator.nextInt(womanNames.size())).toUpperCase();
                 break;
             }
             case 1: {
                 male = true;
-                peselnumber = new Pesel(male);
+                peselnumber = new Pesel(true);
                 name = manNames.get(generator.nextInt(manNames.size())).toUpperCase();
             }
         }
