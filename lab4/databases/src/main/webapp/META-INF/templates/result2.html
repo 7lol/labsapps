@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td><p th:text="${data.name}" /></td>
+		</tr>
+		<tr>
+			<td>Surname: </td>
+			<td><p th:text="${data.surname}" /></td>
+		</tr>
+		<tr>
+			<td>Sex: </td>
+			<td><p th:text="${data.male}" /></td>
+		</tr>
+		<tr>
+			<td>Pesel:  </td>
+			<td><p th:text="${data.pesel}" /></td>
+		</tr>
+		<tr>
+			<td>City: </td>
+			<td><p th:text="${data.city}" /></td>
+		</tr>
+		<tr>
+			<td>Country: </td>
+			<td><p th:text="${data.country}" /></td>
+		</tr>		
+	</table>
+    <a href="/data">Submit another person</a>
+</body>
+</html>

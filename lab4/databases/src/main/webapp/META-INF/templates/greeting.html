@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Adding data to database</h1>
+    <form action="#" th:action="@{/data}" th:object="${data}" method="post">
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td><input type="text" th:field="name" autofocus /></td>
+		</tr>
+		<tr>
+			<td>Surname: </td>
+			<td><input type="text" th:field="surname" /></td>
+		</tr>
+		<tr>
+			<td>Sex: </td>
+			<td>
+				<select name="male">
+					<option value=true>male</option>
+					<option value=false>female</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Pesel:  </td>
+			<td><input type="text" name="pesel" pattern="[0-9]{11}" title="Podaj 11 cyfrowy pesel"></td>
+		</tr>
+		<tr>
+			<td>City: </td>
+			<td><input type="text" th:field="city" /></td>
+		</tr>
+		<tr>
+			<td>Country: </td>
+			<td><input type="text" th:field="country" /></td>
+		</tr>		
+		<tr>
+			<td><input type="submit" value="Submit" /> </td>
+			<td><input type="reset" value="Reset" /> </td>
+		</tr>
+	</table>
+    </form>
+</body>
+</html>
