@@ -17,16 +17,51 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for Jezyki Programowania" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Jezyki Programowania" />
+        <module name="databases-web" />
+        <module name="lab3" />
+        <module name="Spring4MVCAngularJSExample" />
+      </profile>
+      <profile default="false" name="Annotation profile for lab2" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lab2" />
+      </profile>
+      <profile default="false" name="Annotation profile for lab1" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lab1" />
+      </profile>
+      <profile default="false" name="Annotation profile for lab3.zad13" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="lab3.zad13" />
+      </profile>
+      <profile default="false" name="Annotation profile for databases" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="databases" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Jezyki Programowania" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="databases" target="1.8" />
+      <module name="databases-web" target="1.8" />
+      <module name="lab1" target="1.8" />
+      <module name="lab2" target="1.8" />
+      <module name="lab3.zad13" target="1.8" />
+      <module name="Spring4MVCAngularJSExample" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

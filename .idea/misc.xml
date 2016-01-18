@@ -40,12 +40,32 @@
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="org.springframework.web.bind.annotation.RestController" />
+    </list>
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/lab4/databases" />
+    <file type="web" url="file://$PROJECT_DIR$/spring" />
+    <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/lab5/pom.xml" />
+        <option value="$PROJECT_DIR$/lab3.zad13/pom.xml" />
+        <option value="$PROJECT_DIR$/lab2/pom.xml" />
+        <option value="$PROJECT_DIR$/lab1/pom.xml" />
+        <option value="$PROJECT_DIR$/lab4/databases/pom.xml" />
+        <option value="$PROJECT_DIR$/lab4/databases-web/pom.xml" />
+        <option value="$PROJECT_DIR$/spring/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
